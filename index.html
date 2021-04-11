@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>test</title>
   <!-- MDB icon -->
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/myicon.jpg" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -22,6 +22,7 @@
 
   <!-- start your project here -->
   <!-- Main navigation -->
+  <section class="mycl button btn-outline-cyan" id="btt">back</section>
   <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -34,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto smooth-scroll">
             <li class="nav-item">
-              <a class="nav-link" href="#intro">Home
+              <a class="nav-link" href="#intro" onclick="gob()">Home
               </a>
             </li>
             <li class="nav-item">
@@ -72,6 +73,10 @@
               <a class="nav-link">
                 <i class="fab fa-instagram light-green-text-2"></i>
               </a>
+            </li>
+            <li class="nav-item">
+              <input type="text" id="ser">
+              <button type="submit" class="btn-mdb-color" onclick="msj()">search</button>
             </li>
           </ul>
         </div>
@@ -997,14 +1002,39 @@
     $(document).ready(function () {
       new WOW().init();
     });
+    var sec=document.getElementById('btt');
+    var h=document.querySelector('body');
+    var hi=h.offsetHeight;
+    document.addEventListener('scroll',function(){
+      if(window.pageYOffset>hi/3)
+        sec.style.display='block';
+      else
+        sec.style.display='none';
+    });
+    sec.addEventListener('click',function(){
+      window.scroll(0,0);
+    });
     setInterval(function(){tim();}, 1000);
+    function msj(){
+      var j = document.getElementById("ser").value;
+      if(!j)
+      {
+        window.alert('!!!!!')
+        return;
+      }
+      var t1 = 'https://www.baidu.com/s?ie=UTF-8&wd='+j;
+      open(t1,'_blank','',false);
+    }
     function tim(){
       var t1,t2,r;
       var d=new Date();
-      t1=d.toLocaleDateString();
+      t1='<b>'+d.toLocaleDateString()+'</b>';
       t2=d.toLocaleTimeString();
       r=t1+'<br>'+t2;
       document.getElementById('t').innerHTML=r;
+    }
+    function gob(){
+      window.scroll(0,10);
     }
     function showMap() {
       var myLatlng = new sogou.maps.LatLng(29.4902, 106.5714);
