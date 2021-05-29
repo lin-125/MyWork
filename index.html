@@ -16,18 +16,19 @@
   <link rel="stylesheet" href="css/mdb.min.css">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="text/javascript" herf="/js/myScript.js">
 </head>
 
 <body>
 
   <!-- start your project here -->
   <!-- Main navigation -->
-  <section class="mycl button btn-outline-cyan" id="btt">back</section>
+  <button class="mycl button btn-outline-cyan" id="btt">返回顶部</button>
   <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
       <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">导航</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,26 +36,26 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto smooth-scroll">
             <li class="nav-item">
-              <a class="nav-link" href="#intro" onclick="gob()">Home
+              <a class="nav-link" href="#intro" onclick="gob()">介绍
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about" data-offset="90">About</a>
+              <a class="nav-link" href="#about" data-offset="90">关于</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#projects" data-offset="90">Projects</a>
+              <a class="nav-link" href="#projects" data-offset="90">项目</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#gallery" data-offset="90">Gallery</a>
+              <a class="nav-link" href="#gallery" data-offset="90">展示</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#testimonials" data-offset="30">Testimonials</a>
+              <a class="nav-link" href="#testimonials" data-offset="30">感言</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#articles" data-offset="90">Articles</a>
+              <a class="nav-link" href="#articles" data-offset="90">文章</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact" data-offset="90">Contact</a>
+              <a class="nav-link" href="#contact" data-offset="90">联络</a>
             </li>
           </ul>
           <!-- Social Icon  -->
@@ -76,7 +77,7 @@
             </li>
             <li class="nav-item">
               <input type="text" id="ser">
-              <button type="submit" class="btn-mdb-color" onclick="msj()">search</button>
+              <button type="submit" class="btn-mdb-color" onclick="msj()">查询</button>
             </li>
           </ul>
         </div>
@@ -860,22 +861,22 @@
             <form class="p-5 grey-text">
               <div class="md-form form-sm"> <i class="fas fa-user prefix"></i>
                 <input type="text" id="form1" class="form-control form-control-sm">
-                <label for="form1">Your name</label>
+                <label for="form1">姓名</label>
               </div>
               <div class="md-form form-sm"> <i class="fas fa-envelope prefix"></i>
                 <input type="text" id="form2" class="form-control form-control-sm">
-                <label for="form2">Your email</label>
+                <label for="form2">邮箱</label>
               </div>
               <div class="md-form form-sm"> <i class="fas fa-tag prefix"></i>
                 <input type="text" id="form3" class="form-control form-control-sm">
-                <label for="form3">Subject</label>
+                <label for="form3">职业</label>
               </div>
               <div class="md-form form-sm"> <i class="fas fa-pencil-alt prefix"></i>
                 <textarea type="text" id="form4" class="md-textarea form-control form-control-sm" rows="4"></textarea>
-                <label for="form4">Your message</label>
+                <label for="form4">意见</label>
               </div>
               <div class="text-center mt-4">
-                <button class="btn btn-primary">Send <i class="far fa-paper-planeml-1"></i></button>
+                <button class="btn btn-primary">发送<i class="far fa-paper-planeml-1"></i></button>
               </div>
             </form>
             <!-- Form contact -->
@@ -970,7 +971,7 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
@@ -1014,25 +1015,7 @@
     sec.addEventListener('click',function(){
       window.scroll(0,0);
     });
-    setInterval(function(){tim();}, 1000);
-    function msj(){
-      var j = document.getElementById("ser").value;
-      if(!j)
-      {
-        window.alert('!!!!!')
-        return;
-      }
-      var t1 = 'https://www.baidu.com/s?ie=UTF-8&wd='+j;
-      open(t1,'_blank','',false);
-    }
-    function tim(){
-      var t1,t2,r;
-      var d=new Date();
-      t1='<b>'+d.toLocaleDateString()+'</b>';
-      t2=d.toLocaleTimeString();
-      r=t1+'<br>'+t2;
-      document.getElementById('t').innerHTML=r;
-    }
+    setInterval(function(){tim("t");}, 1000);
     function gob(){
       window.scroll(0,10);
     }
@@ -1048,7 +1031,7 @@
     }
     // 设置事件侦听器, 当窗口加载时调用 showMap 函数
     sogou.maps.event.addDomListener(window, 'load', showMap);
-    sogou.maps.event.addDomListener(window, 'load', tim);
+    document.addEventListener('loding',tim("t"))
   </script>
 
 </body>
