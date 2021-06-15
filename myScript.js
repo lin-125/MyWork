@@ -1,7 +1,7 @@
 function msj(e) {
     let j = document.getElementById(e).value;
     if (!j) {
-        window.alert('!!!!!')
+        window.alert('请输入要查询的内容')
         return;
     }
     var t1 = 'https://www.baidu.com/s?ie=UTF-8&wd=' + j;
